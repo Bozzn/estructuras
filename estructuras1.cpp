@@ -1,4 +1,4 @@
-// by: Piero García
+    // by: Piero García
 
 #include <iostream>
 #include <conio.h>
@@ -43,12 +43,12 @@ int main(){
 cout << "\n\n--------EMPLEADO CON MAYOR SALARIO--------\n\n";
 
 cout << "Nombre: " << empleados[PM].nombre << "\n";
-cout << "Con un sueldo de: " << empleados[PM].sueldo << "\n"; 
+cout << "Con un sueldo de: " << empleados[PM].sueldo << "dolares.\n"; 
 
 cout << "\n\n-----------EMPLEADO CON MENOR SALARIO---------\n\n";
 
 cout << "Nombre: " << empleados[pm].nombre << "\n";
-cout << "Con un sueldo de: " << empleados[pm].sueldo << "\n";
+cout << "Con un sueldo de: " << empleados[pm].sueldo << "dolares.\n";
     
     
 
