@@ -24,6 +24,7 @@ int main(){
 do 
 {
     int opc = 0;
+    system("cls");
     
     cout << "\n-----------------ALMACEN DE CONTACTOS-------------\n\n";
     cout << "1.- Agregar contacto.\n";
@@ -119,14 +120,15 @@ do
                 case 4:
                     char mail; // caracter para seleccionar el tipo de servido mail.
                     int aux3; // Auxiliar para repetir el bucle si no selecciono ninguna opción.
+                    int numEmail = 0; // Variable para saber cuantos Mails del servidor se han encontrado.
                 do{
                     system("cls");
                     cout << "\n\n-------------SERVIDORES MAIL--------------\n\n";
-                    cout << "Ingrese un servidor de Mail: \na) Gmail. (@gmail.com)\nb) Outlook.(@outlook.com)\nc) Unjbg.(@unjbg.edu.pe)\nd) Yahoo!. (@yahoo.es)\ne)iCloud Mail.(@icloud.com\nf) Hotmail. (hotmail.com)\n\n ";
-                    cin >> mail;
+                    cout << "Ingrese un servidor de Mail: \na) Gmail. (@gmail.com)\nb) Outlook.(@outlook.com)\nc) Unjbg.(@unjbg.edu.pe)\nd) Yahoo!. (@yahoo.es)\ne)iCloud Mail.(@icloud.com\nf) Hotmail. (hotmail.com)\n\nSeleccione una opcion: ";
+                    cin >> mail; 
                     switch (mail)
-                    system("cls");
                     {
+                    system("cls");
                     cout << "\n--------------SERVIDORES MAIL-------------\n\n";
                     case 'a':
                     cout << "\nEstos son los correos con el servidor de '@gmail.com'\n\n";
@@ -135,13 +137,14 @@ do
                             if (personas[i].Email.find("@gmail.com") != string::npos)
                             {
                                 cout << personas[i].Email;
-                            }
-                            else
-                            {
-                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
-                            }
-                            
+                                numEmail++;
+                            }   
                         }
+                        if (numEmail == 0)
+                        {
+                            cout << "No se encontro ningun correo con es servidor '@gmail.com'\n\n";
+                        }
+                        cout << "\nNumero de correos encontrados: " << numEmail;
                         getch();
                         break;
                     
@@ -152,12 +155,14 @@ do
                             if (personas[i].Email.find("@outlook.com") != string::npos)
                             {
                                 cout << personas[i].Email;
-                            }
-                            else
-                            {
-                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                                numEmail++;
                             }
                         }
+                        if (numEmail == 0)
+                        {
+                            cout << "\nNo se encontro ningun correo con es servidor '@outlook.com'\n";
+                        }
+                        cout << "\nNumero de correos encontrados: " << numEmail;
                         getch();
                         break;
                     case 'c':
@@ -167,12 +172,14 @@ do
                             if (personas[i].Email.find("@unjbg.edu.pe") != string::npos)
                             {
                                 cout << personas[i].Email;
-                            }
-                            else
-                            {
-                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                                numEmail++;
                             }
                         }
+                        if (numEmail == 0)
+                        {
+                            cout << "No se encontro ningun correo con es servidor '@unjbg.edu.pe'\n\n";
+                        }
+                        cout << "\nNumero de correos encontrados: " << numEmail;
                         getch();
                         break;
                     case 'd':
@@ -182,12 +189,14 @@ do
                             if (personas[i].Email.find("@yahoo.es") != string::npos)
                             {
                                 cout << personas[i].Email;
-                            }
-                            else
-                            {
-                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                                numEmail++;
                             }
                         }
+                        if (numEmail == 0)
+                        {
+                            cout << "No se encontro ningun correo con es servidor '@yahoo.es'\n\n";
+                        }
+                        cout << "\nNumero de correos encontrados: " << numEmail;
                         getch();
                         break;
                     case 'e':
@@ -197,12 +206,14 @@ do
                             if (personas[i].Email.find("@icloud.com") != string::npos)
                             {
                                 cout << personas[i].Email;
-                            }
-                            else
-                            {
-                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                                numEmail++;
                             }
                         }
+                        if (numEmail == 0)
+                        {
+                            cout << "No se encontro ningun correo con es servidor '@icloud.com'\n\n";
+                        }
+                        cout << "\nNumero de correos encontrados: " << numEmail;
                         getch(); 
                         break;
                     case 'f':
@@ -212,12 +223,14 @@ do
                             if (personas[i].Email.find("@hotmail.com") != string::npos)
                             {
                                 cout << personas[i].Email;
-                            }
-                            else
-                            {
-                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                                numEmail++;
                             }
                         }
+                        if (numEmail == 0)
+                        {
+                            cout << "No se encontro ningun correo con es servidor '@hotmail.com'\n\n";
+                        }
+                        cout << "\nNumero de correos encontrados: " << numEmail;
                         getch(); 
                         break;
                     default:
