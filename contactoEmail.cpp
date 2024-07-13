@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <string>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 struct contactoEmail
 // NOTA: ERROR 1 - NO ALMACENA NADA SI SE INGRESA SOLO 1 DATO COMO TAMAÑO. 
@@ -16,6 +17,7 @@ struct contactoEmail
 
 
 int main(){
+    string Mail; // Variable para identificar el mail de una persona.
     int numEmail = 0; // Variable para saber cuantos Mails del servidor se han encontrado.
     int aux2; //Auxiliar para repetir el bucle si el contacto no existe.(bool)  
     char mail; // caracter para seleccionar el tipo de servido mail.
@@ -37,7 +39,7 @@ do
     cout << "3.- Mostrar el listado general de contactos registrados hasta este momento.\n";
     cout << "4.- Mostrar servidores email.\n";
     cout << "5.- Eliminar un contacto.\n";
-    cout << "6.- Mostrar datos de un contacto por el email.\n";
+    cout << "6.- Mostrar datos completos de un contacto por el email.\n";
     cout << "0.- Finalizar el programa.\n";
     cin >> op;
     system("cls");
@@ -50,7 +52,7 @@ do
                     {
                     fflush(stdin);
                     cout << "Contacto " << aux << ":\n";
-                    cout << "Digite los nombres del usuario:\n"; getline(cin, personas[aux].nombreC);
+                    cout << "Digite los nombres completos del usuario:\n"; getline(cin, personas[aux].nombreC);
                     do
                     {
                         cout << "Digite el sexo del usuario:\na) Hombre\nb) Mujer\nc) Prefiero no decirlo.\n"; getline(cin,personas[aux].sexo);
@@ -61,10 +63,10 @@ do
                     cout << "Digite el email del usuario: (gmail.com, outlook.com, unjbg.edu.pe, etc.) \n"; getline(cin,personas[aux].Email);
                     fflush(stdin);
                     cout << "Como desea guardar este contacto: (Apodo)\n"; getline(cin,personas[aux].apodo);
-                    aux++;
+                    aux++;  
                     cout << "\n\nPresione una tecla para continuar.\n";
                     getch();
-                    break;
+                    break; 
                     }
                     else
                     {
@@ -94,7 +96,7 @@ do
                             system("cls");
                             fflush(stdin);
                         cout << "Contacto " << opc << ":\n";
-                            cout << "Digite los nombres del usuario:\n"; getline(cin, personas[opc-1].nombreC);
+                            cout << "Digite los nombres completos del usuario:\n"; getline(cin, personas[opc-1].nombreC);
                             do
                             {
                                 cout << "Digite el sexo del usuario:\na) Hombre\nb) Mujer\nc) Prefiero no decirlo.\n"; getline(cin,personas[opc-1].sexo);
@@ -262,11 +264,13 @@ do
 
                 aux3 = 0; // Usamos el mismo auxiliar para repetir el bucle, si el usuario seleccionó una opción incorrecta.
                 system("cls");
+                do
+                {
                 cout << "\n-----------------ELIMINAR CONTACTOS---------------\n\n";
                 cout << "Ingrese el contacto que desea eliminar: (Recuerde que la posicion en donde se guardo el contacto se eliminara, y quedara un espacio libre para editar.)\n";
                 for (int i = 0; i < n; i++)
                 {
-                    cout << "Contacto " << i+1 << ":\n" << "Apodo: " << personas[i].apodo;
+                    cout << "Contacto " << i+1 << ":\n" << "Apodo: " << personas[i].apodo << "\n\n";
                 }
                  
                 cin >> pos;
@@ -274,18 +278,44 @@ do
                 {
                     system("cls");
                     pos = pos - 1;
-                    for (int i = pos; i < n; i++)
+                    for (int i = pos; i < (n - 1); i++)
                     {
                         personas[i] = personas[i+1];
                     }  
+                    n = n - 1;
+                    getch();
+                    break;
                 }
                 else
                 {
                     system("cls");
-                    cout << "\n Ese contacto no existe!, intentelo nuevamente.";
+                    cout << "\n Ese contacto no existe!, intentelo nuevamente.\n";
+                    aux3 = 1;
+                    getch();
+                    break;
                 }
-                getch();
-                break;
+                } while (aux3 == 1);
+                case 6:
+                cout << "\n\n------------DATOS COMPLETOS----------\n\n";
+                cout << "Ingrese el Mail del contacto: "; getline(cin, Mail);
+                for (int i = 0; i < n; i++)
+                {
+                    if (Mail.compare(personas[i].Email == 0))
+                    {
+                        for (int i = 0; i < n; i++)
+                        {
+                            cout << "Nombres Completos: " << personas[i].nombreC << "\n";
+                            cout << "Sexo: " << personas[i].sexo << "\n";
+                            cout << "Edad: " << personas[i].edad << "\n";
+                            cout << "Mail: " << personas[i].Email << "\n";
+                            cout << "Nickname: " << personas[i].apodo << "\n";
+                        }
+                        
+                    }
+                    
+                }
+                
+
 
 
         }
