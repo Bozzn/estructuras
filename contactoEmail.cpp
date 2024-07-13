@@ -16,8 +16,8 @@ struct contactoEmail
 
 
 int main(){
-    int n, op;
-    int aux = 0;
+    int n, op; //n: Cantidad de contactos que desea guardar; op: Opciones del menú.
+    int aux = 0; // Es una variable progresiva limitada al numero de contactos, para que el usuario pueda almacenar contactos cuando desee.
     
     cout << "Ingrese cuantos contactos desea almacenar: "; cin >> n;
     contactoEmail personas[n];
@@ -63,7 +63,7 @@ do
                 
                 break;
                 case 2:
-                int aux2;
+                int aux2; //Auxiliar para repetir el bucle si el contacto no existe.(bool)
                 if (sizeof(personas)/sizeof(contactoEmail) != 0)
                 {
                     system("cls");
@@ -115,9 +115,113 @@ do
                     getch();
                     break;
                 case 4:
+                    char mail; // caracter para seleccionar el tipo de servido mail.
+                    int aux3; // Auxiliar para repetir el bucle si no selecciono ninguna opción.
                     system("cls");
-                    cout << "\n\n-------------SERVIDORES EMAIL--------------\n\n";
-                    cout << "Ingrese un servidor de Email: \na) Gmail.\nb) Outlook.\nc)Unjbg.\nd) Yahoo!.\ne)iCloud Email.\n\n ";
+                    cout << "\n\n-------------SERVIDORES MAIL--------------\n\n";
+                    cout << "Ingrese un servidor de Mail: \na) Gmail. (@gmail.com)\nb) Outlook.(@outlook.com)\nc) Unjbg.(@unjbg.edu.pe)\nd) Yahoo!. (@yahoo.es)\ne)iCloud Mail.(@icloud.com\nf) Hotmail. (hotmail.com)\n\n ";
+                    fflush(stdin);
+                    cin >> mail;
+                    switch (mail)
+                    system("cls");
+                    {
+                    case 'a':
+                    cout << "\nEstos son los correos con el servidor de '@gmail.com'\n\n";
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (personas[i].Email.find("@gmail.com") != string::npos)
+                            {
+                                cout << personas[i].Email;
+                            }
+                            else
+                            {
+                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                            }
+                            
+                        }
+                        getch();
+                        break;
+                    
+                    case 'b':
+                    cout << "\nEstos son los correos con el servidor de '@outlook.com'\n\n";
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (personas[i].Email.find("@outlook.com") != string::npos)
+                            {
+                                cout << personas[i].Email;
+                            }
+                            else
+                            {
+                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                            }
+                        }
+                        getch();
+                        break;
+                    case 'c':
+                    cout << "\nEstos son los correos con el servidor de '@unjbg.edu.pe'\n\n";
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (personas[i].Email.find("@unjbg.edu.pe") != string::npos)
+                            {
+                                cout << personas[i].Email;
+                            }
+                            else
+                            {
+                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                            }
+                        }
+                        getch();
+                        break;
+                    case 'd':
+                    cout << "\nEstos son los correos con el servidor de '@yahoo.es'\n\n";
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (personas[i].Email.find("@yahoo.es") != string::npos)
+                            {
+                                cout << personas[i].Email;
+                            }
+                            else
+                            {
+                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                            }
+                        }
+                        getch();
+                        break;
+                    case 'e':
+                    cout << "\nEstos son los correos con el servidor de '@icloud.com'\n\n";
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (personas[i].Email.find("@icloud.com") != string::npos)
+                            {
+                                cout << personas[i].Email;
+                            }
+                            else
+                            {
+                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                            }
+                        }
+                        getch(); 
+                        break;
+                    case 'f':
+                    cout << "\nEstos son los correos con el servidor de '@hotmail.com'\n\n";
+                        for (int i = 0; i < n; i++)
+                        {
+                            if (personas[i].Email.find("@hotmail.com") != string::npos)
+                            {
+                                cout << personas[i].Email;
+                            }
+                            else
+                            {
+                                cout << "\nNo se encuentra este servidor de correo en el almacen!.";
+                            }
+                        }
+                        getch(); 
+                        break;
+                    default:
+                    cout << "\nOpcion incorrecta, vuelva a intentarlo.\n";
+                    aux3 = 1;
+                        break;
+                    }
                     
         }
 } while(op != 0);
