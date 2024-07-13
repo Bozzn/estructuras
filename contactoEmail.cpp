@@ -32,6 +32,7 @@ do
     cout << "4.- Mostrar servidores email.\n";
     cout << "5.- Eliminar un contacto.\n";
     cout << "6.- Mostrar datos de un contacto por el email.\n";
+    cout << "0.- Finalizar el programa.\n";
     cin >> op;
 
     system("cls");
@@ -60,13 +61,14 @@ do
                     {
                         cout << "Almacen lleno!";
                     }
-                
+                getch();
                 break;
                 case 2:
                 int aux2; //Auxiliar para repetir el bucle si el contacto no existe.(bool)
+                system("cls");
+                cout << "\n-----------EDITAR UN CONTACTO-----------\n\n";
                 if (sizeof(personas)/sizeof(contactoEmail) != 0)
                 {
-                    system("cls");
                     cout << "Que contacto desea Actualizar?\n";
         
                     for (int i = 0; i < n ; i++)
@@ -117,14 +119,15 @@ do
                 case 4:
                     char mail; // caracter para seleccionar el tipo de servido mail.
                     int aux3; // Auxiliar para repetir el bucle si no selecciono ninguna opción.
+                do{
                     system("cls");
                     cout << "\n\n-------------SERVIDORES MAIL--------------\n\n";
                     cout << "Ingrese un servidor de Mail: \na) Gmail. (@gmail.com)\nb) Outlook.(@outlook.com)\nc) Unjbg.(@unjbg.edu.pe)\nd) Yahoo!. (@yahoo.es)\ne)iCloud Mail.(@icloud.com\nf) Hotmail. (hotmail.com)\n\n ";
-                    fflush(stdin);
                     cin >> mail;
                     switch (mail)
                     system("cls");
                     {
+                    cout << "\n--------------SERVIDORES MAIL-------------\n\n";
                     case 'a':
                     cout << "\nEstos son los correos con el servidor de '@gmail.com'\n\n";
                         for (int i = 0; i < n; i++)
@@ -222,7 +225,39 @@ do
                     aux3 = 1;
                         break;
                     }
-                    
+
+                }while (aux3 == 1);   
+
+                case 5:
+                int pos; // Variable para identificar la posicion del contacto, en el arreglo (Al momento de imprimir usaremos terminos reales empezando desde la pos 1).
+                aux3 = 0; // Usamos el mismo auxiliar para repetir el bucle, si el usuario seleccionó una opción incorrecta.
+                system("cls");
+                cout << "\n-----------------ELIMINAR CONTACTOS---------------\n\n";
+                cout << "Ingrese el contacto que desea eliminar: (Recuerde que la posicion en donde se guardo el contacto se eliminara, y quedara un espacio libre para editar.)\n";
+                for (int i = 0; i < n; i++)
+                {
+                    cout << "Contacto " << i+1 << ":\n" << "Apodo: " << personas[i].apodo;
+                }
+                
+                cin >> pos;
+                if (pos > 0 && pos <= n)
+                {
+                    system("cls");
+                    pos = pos--;
+                    for (int i = pos; i < n; i++)
+                    {
+                        personas[i] = personas[i+1];
+                    }  
+                }
+                else
+                {
+                    system("cls");
+                    cout << "\n Ese contacto no existe!, intentelo nuevamente.";
+                }
+                getch();
+                break;
+
+
         }
 } while(op != 0);
        
