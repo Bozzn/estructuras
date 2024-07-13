@@ -238,7 +238,7 @@ do
                 {
                     cout << "Contacto " << i+1 << ":\n" << "Apodo: " << personas[i].apodo;
                 }
-                
+                 
                 cin >> pos;
                 if (pos > 0 && pos <= n)
                 {
